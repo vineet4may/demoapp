@@ -5,6 +5,7 @@ from DemoApp import views
 
 urlpatterns = [
     # url(r'^$', views.HomePageView.as_view()),
-    url(r'^', views.LoginUser.as_view()),
+    url(r'^$', views.LoginUser.as_view()),
+    url(r'^login/$', views.signUpPageView),
     # url(r'^login', views.loginUser),
 ]
