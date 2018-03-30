@@ -13,3 +13,18 @@ from demo1 import settings
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'index.html', context=None)
+class LoginUser(TemplateView):
+	def get(self, request, **kwargs):
+		return render(request, 'login.html', context=None)
+
+def loginUser(request):
+	if request.method == 'POST':
+		if request.POST.get('id'):
+			try:
+				reg = Registration.objects.get(id=request.POST.get('id'))
+				req.email = request.POST.get('email1')
+				req.password = request.POST.get('password1')
+			except Registration.DoesNotExist:
+				pass
+			return redirect('/login/')
+
